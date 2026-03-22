@@ -1,0 +1,17 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "13_"
+
+default:
+    just --list
+
+gen_feature_unterfeature:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i feature_unterfeatures.mmd -o {{kapitel_praefix}}feature_unterfeatures.png
+
+gen_viele_pakete_viele_features:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i viele_pakete_viele_features.mmd -o {{kapitel_praefix}}viele_pakete_viele_features.png
+
+gen_optional_optional: gen_optional_optional_aktiv
+    docker run -v ./doc/:/data minlag/mermaid-cli -i optional_optional.mmd -o {{kapitel_praefix}}optional_optional.png
+gen_optional_optional_aktiv:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i optional_optional_aktiv.mmd -o {{kapitel_praefix}}optional_optional_aktiv.png

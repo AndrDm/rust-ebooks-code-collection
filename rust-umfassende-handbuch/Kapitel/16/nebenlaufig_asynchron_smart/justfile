@@ -1,0 +1,46 @@
+#!/usr/bin/env just --justfile
+set windows-shell := ["powershell.exe"]
+
+kapitel_praefix := "18_"
+
+default:
+    just --list
+
+gen_intro_neben:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i intro_neben.mmd -o {{kapitel_praefix}}intro_neben.png
+
+gen_thread_sync:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i thread_sync.mmd -o {{kapitel_praefix}}thread_sync.png
+
+gen_thread_nicht_sync:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i thread_nicht_sync.mmd -o {{kapitel_praefix}}thread_nicht_sync.png
+
+gen_arc_sicher:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i arc_sicher.mmd -o {{kapitel_praefix}}arc_sicher.png
+
+gen_channels_async:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i channels_async.mmd -o {{kapitel_praefix}}channels_async.png
+
+gen_channel_sender_receiver:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i channel_sender_receiver.mmd -o {{kapitel_praefix}}channel_sender_receiver.png
+
+gen_mutex_intro:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i mutex_intro.mmd -o {{kapitel_praefix}}mutex_intro.png
+
+gen_data_race:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i data_race.mmd -o {{kapitel_praefix}}data_race.png
+
+gen_data_race_dynamisch:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i data_race_dynamisch.mmd -o {{kapitel_praefix}}data_race_dynamisch.png
+
+gen_condvar_ablauf:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i condvar_ablauf.mmd -o {{kapitel_praefix}}condvar_ablauf.png
+
+gen_async_future_automat:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i async_future_automat.mmd -o {{kapitel_praefix}}async_future_automat.png
+
+gen_async_interaktive_future:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i async_interaktive_future.mmd -o {{kapitel_praefix}}async_interaktive_future.png
+
+gen_async_executor_waker_future:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i async_executor_waker_future.mmd -o {{kapitel_praefix}}async_executor_waker_future.png

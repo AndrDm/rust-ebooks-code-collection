@@ -1,0 +1,3 @@
+trait Form {
+    type Koordinate;
+}

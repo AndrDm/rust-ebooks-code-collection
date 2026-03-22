@@ -1,0 +1,17 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "13_"
+
+default:
+    just --list
+
+gen_carets: gen_caret_1_0 && gen_caret_0_0
+
+gen_caret_1_0:
+  docker run -v ./doc/:/data minlag/mermaid-cli -i strategie_caret_1_0.mmd -o {{kapitel_praefix}}strategie_caret_1_0.png
+
+gen_caret_0_0:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i strategie_caret_0_0.mmd -o {{kapitel_praefix}}strategie_caret_0_0.png
+
+gen_tilde:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i strategie_tilde.mmd -o {{kapitel_praefix}}strategie_tilde.png

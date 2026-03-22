@@ -1,0 +1,12 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "13_"
+
+default:
+    just --list
+
+gen_lock_abhaengigkeiten:
+  docker run -v ./doc/:/data minlag/mermaid-cli -i lock_abhaengigkeiten.mmd -o {{kapitel_praefix}}lock_abhaengigkeiten.png
+
+gen_lock_spitze_abhaengigkeiten:
+  docker run -v ./doc/:/data minlag/mermaid-cli -i lock_spitze_abhaengigkeiten.mmd -o {{kapitel_praefix}}lock_spitze_abhaengigkeiten.png

@@ -1,0 +1,10 @@
+#!/usr/bin/env just --justfile
+set windows-shell := ["powershell.exe"]
+
+kapitel_praefix := "05_"
+
+default:
+    just --list
+
+gen_slice_auf_statisch:
+    docker run --rm -v ./doc/:/data minlag/mermaid-cli -i slice_auf_statisch.mmd -o {{kapitel_praefix}}slice_auf_statisch.png

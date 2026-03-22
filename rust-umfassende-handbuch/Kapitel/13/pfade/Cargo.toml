@@ -1,0 +1,7 @@
+[package]
+name = "pfade"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bibliothek = { version = "0.1.0", path = "bibliothek" }

@@ -1,0 +1,24 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "13_"
+
+default:
+    just --list
+
+gen_schritt_1:
+  docker run -v ./schritte/schritt_1/doc/:/data minlag/mermaid-cli -i ueberblick.mmd -o {{kapitel_praefix}}ueberblick_schritt_1.png
+
+gen_schritt_2:
+  docker run -v ./schritte/schritt_2/doc/:/data minlag/mermaid-cli -i ueberblick.mmd -o {{kapitel_praefix}}ueberblick_schritt_2.png
+
+gen_modulbaum_beispiel:
+  docker run -v ./doc/:/data minlag/mermaid-cli -i beispiel_modulbaum.mmd -o {{kapitel_praefix}}beispiel_modulbaum.png
+
+gen_schritt_4:
+  docker run -v ./schritte/schritt_4/doc/:/data minlag/mermaid-cli -i elternmodul_untermodul.mmd -o {{kapitel_praefix}}elternmodul_untermodul.png
+
+gen_schritt_7:
+    docker run -v ./schritte/schritt_7/doc/:/data minlag/mermaid-cli -i modulbaum_teilbaum.mmd -o {{kapitel_praefix}}modulbaum_teilbaum.png
+
+gen_schritt_10:
+    docker run -v ./schritte/schritt_10_stile/doc/:/data minlag/mermaid-cli -i gegenueberstellung.mmd -o {{kapitel_praefix}}gegenueberstellung.png

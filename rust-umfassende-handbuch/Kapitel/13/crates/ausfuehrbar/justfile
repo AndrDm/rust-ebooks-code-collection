@@ -1,0 +1,9 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "13_"
+
+default:
+    just --list
+
+gen_crate_zu_modul:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i crate_zu_modul.mmd -o {{kapitel_praefix}}crate_zu_modul.png

@@ -1,0 +1,14 @@
+#!/usr/bin/env just --justfile
+set windows-shell := ["powershell.exe"]
+
+kapitel_praefix := "04_"
+
+default:
+    just --list
+
+gen_box_fehler_1:
+    docker run --rm -v .\doc\:/data minlag/mermaid-cli -i box_fehler_1.mmd -o {{kapitel_praefix}}box_fehler_1.png
+gen_box_fehler_2:
+    docker run --rm -v .\doc\:/data minlag/mermaid-cli -i box_fehler_2.mmd -o {{kapitel_praefix}}box_fehler_2.png
+gen_box_fehler_3:
+    docker run --rm -v .\doc\:/data minlag/mermaid-cli -i box_fehler_3.mmd -o {{kapitel_praefix}}box_fehler_3.png

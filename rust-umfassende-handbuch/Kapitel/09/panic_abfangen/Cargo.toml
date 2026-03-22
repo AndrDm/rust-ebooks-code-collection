@@ -1,0 +1,10 @@
+[package]
+name = "panic_abfangen"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+#panic = 'abort'
+
+[dependencies]
+rand = "0.8.5"

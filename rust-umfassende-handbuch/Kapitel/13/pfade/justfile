@@ -1,0 +1,9 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "13_"
+
+default:
+    just --list
+
+gen_path_in:
+    docker run -v ./path_in/doc/:/data minlag/mermaid-cli -i path_in_modulebenen.mmd -o {{kapitel_praefix}}path_in_modulebenen.png

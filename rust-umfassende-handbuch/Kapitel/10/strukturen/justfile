@@ -1,0 +1,12 @@
+#!/usr/bin/env just --justfile
+
+kapitel_praefix := "10_"
+
+default:
+    just --list
+
+gen_Bestellung_Detail:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i Bestellung_Detail.mmd -o {{kapitel_praefix}}Bestellung_Detail.png
+
+gen_Ueberblick_Restaurant:
+    docker run -v ./doc/:/data minlag/mermaid-cli -i Ueberblick_Restaurant.mmd -o {{kapitel_praefix}}Ueberblick_Restaurant.png

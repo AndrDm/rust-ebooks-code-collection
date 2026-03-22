@@ -1,0 +1,11 @@
+[package]
+name = "paket_a"
+version.workspace = true
+authors.workspace = true
+# "desription" überschreiben
+description = "Dies ist Paket A!"
+edition = "2021"
+
+[dependencies]
+rand = { workspace = true, optional = true }
+
